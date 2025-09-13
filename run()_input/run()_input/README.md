@@ -67,8 +67,6 @@ bad_input1 = [{"content": "Hello"}]
 # Missing content → Error
 bad_input2 = [{"role": "user"}]
 
-# Invalid role → Error
-bad_input3 = [{"role": "admin", "content": "Hello"}]
 
 # Content not string → Error
 bad_input4 = [{"role": "user", "content": 123}]
@@ -141,4 +139,5 @@ Errors → occur if keys missing, content invalid, type mix
 Conversation history → use conversation_id + list
 
 💡 Pro Tip:
+
 Always check role + content for each dictionary. Agar correct nahi → run() fail ho jayega.
