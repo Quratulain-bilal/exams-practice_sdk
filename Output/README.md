@@ -135,16 +135,9 @@ Validation lagata hai
 Wrap/un-wrap handle karta hai
 
 Nested data support karta hai
-Quick reminder — AgentOutputSchema ka wrap rule (jo examples me bar-bar use hoga)
-
-Not wrapped: output_type is None ya output_type is str ya top-level dict ya pydantic.BaseModel.
-
-Wrapped: baqi sab (int, float, bool, list[...] , tuple, normal dataclass, etc.).
-Wrapped ka matlab: SDK expected JSON { "response": ... } banata/chahta hai.
 
 
-
----
+methods
 
 1) is_plain_text()
 
