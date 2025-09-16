@@ -1,58 +1,110 @@
-1️⃣ Function aur Decorator ka relation
+🛠️ Understanding @function_tool and is_enabled (Easy Guide)
 
-Normal Python me:
+📌 1. What is @function_tool?
 
-def my_func():
-    return "hello"
+Normally ek Python function apna kaam karta hai.
 
-Ab agar isko agent ka tool banana hai → hum @function_tool decorator lagate hain:
+Lekin agar hum us function ko agent ke liye tool banana chahte hain → to hum @function_tool decorator lagate hain.
+
+
+Example:
 
 @function_tool()
-def my_func():
-    return "hello"
+def greet():
+    return "Hello, User!"
 
-Matlab: decorator ke bina ye sirf Python function hai, decorator ke saath ye agent ke liye ek tool ban jata hai.
+👉 Ab greet() ek agent tool ban gaya jo call ho sakta hai.
 
 
 ---
 
-2️⃣ is_enabled ka role
+📌 2. What is is_enabled?
 
-Ab tool ban gaya, lekin hamesha har user ke liye enable ho ya kabhi kabhi ho → yeh decide karne ke liye is_enabled option hota hai.
+is_enabled ek option hai jo decide karta hai ki tool available hoga ya nahi.
 
-Case A: Hamesha enabled
+Teen tareeqe hote hain:
+
+
+
+---
+
+✅ Case A: Always Enabled
 
 @function_tool(is_enabled=True)
-def my_func():
-    return "hello"
+def greet():
+    return "Hello, User!"
 
-Tool sabke liye hamesha available hai.
-
-is_enabled=True ek fixed value hai → function ki zarurat nahi.
+Tool hamesha sabke liye available.
 
 
-Case B: Hamesha disabled
+
+---
+
+❌ Case B: Always Disabled
 
 @function_tool(is_enabled=False)
-def my_func():
-    return "hello"
+def greet():
+    return "Hello, User!"
 
-Tool kabhi enable nahi hoga.
+Tool kabhi use nahi ho sakta.
 
 
-Case C: Sirf special condition me enable
 
-Yahan hum function dete hain:
+---
+
+🎯 Case C: Conditional (Dynamic)
 
 def only_admin(run_context, tool):
     return run_context.get("user_name") == "Ali"
 
 @function_tool(is_enabled=only_admin)
-def my_func():
-    return "hello"
+def add_member():
+    return "Member added to group"
 
-Ab is_enabled ek function hai jo decide karega.
+Ab tool sirf Ali ke liye enabled hai.
 
-SDK jab tool run karega, us waqt run_context aur tool pass karega.
+SDK jab tool ko check karega → wo run_context aur tool automatically pass karega.
 
-Agar function True return kare → tool enable. Agar False → tool disable
+Agar function True return kare → tool enable. Agar False → disable.
+
+
+
+---
+
+📌 3. Why Parameters in is_enabled Function?
+
+Jab is_enabled ek function hai → usko 2 arguments lena hi padenge:
+
+1. run_context → Current user/session info (e.g. user_name)
+
+
+2. tool → Kaunsa tool call ho raha hai
+
+
+
+Example:
+
+def is_Admin(run_context, tool):
+    # Sirf Ali ka naam match ho to enable
+    return run_context.get("user_name") == "Ali"
+
+⚠️ Agar ye parameters nahi doge → Python error aayega:
+
+TypeError: is_Admin() missing 2 required positional arguments
+
+👉 Isliye aksar log default =None dete hain taake manual call karne par bhi error na aaye:
+
+def is_Admin(run_context=None, tool=None):
+    ...
+
+
+---
+
+📌 4. Summary Table
+
+Case	is_enabled value	Parameters required?	Tool availability
+
+Fixed Enabled	True	❌ No	Always available
+Fixed Disabled	False	❌ No	Never available
+Conditional	Function	✅ Yes (run_context, tool)	Depends on logic
+
