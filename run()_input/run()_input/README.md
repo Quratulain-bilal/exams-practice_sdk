@@ -1,8 +1,7 @@
 OpenAI Agents SDK – run() Input Guide (Complete)
 Introduction
 
-Ye guide explain karta hai ki run() function me input kaise dena hai, kya valid hai, kya galat ho sakta hai, aur kab errors aayenge.
-Yaha hum simple English + Roman Urdu mix use kar rahe hain, taake beginners bhi easily samajh saken.
+Ye guide explain karta hai ki run() function me input kaise dena hai, kya valid hai, kya galat ho sakta hai, aur kab errors aayenge
 
 1️⃣ Input Types
 A) String Input
@@ -141,3 +140,4 @@ Conversation history → use conversation_id + list
 💡 Pro Tip:
 
 Always check role + content for each dictionary. Agar correct nahi → run() fail ho jayega.
+
