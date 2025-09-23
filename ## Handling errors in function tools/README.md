@@ -1,4 +1,4 @@
-Acha ✅ main isko simple way mein samjhata hoon:
+
 
 ---
 
@@ -40,7 +40,7 @@ Isi liye `failure_error_function` option diya gaya hai.
 
 ---
 
-## 🔹 Example Samjhne Ke Liye
+## 🔹 Example 
 
 ```python
 from agents import function_tool, RunContextWrapper
@@ -86,6 +86,38 @@ Yani `try/except` laga kar error handle karna parta hai.
 * Agar aap custom dete ho → aapka friendly message.
 * Agar `None` dete ho → error upar raise hoga, LLM tak nahi jaayega.
 
+
+# ❓ Question
+
+Suppose tumne ek **triage agent** banaya hai jo 4 different agents ko tools ke taur pe use karta hai:
+
+* `math_agent` (maths solve karta hai)
+* `search_agent` (web search karta hai)
+* `translate_agent` (translation karta hai)
+* `summary_agent` (text summarization karta hai)
+
+Agar user ek request bhejta hai aur LLM decide karta hai ke `translate_agent` ko call karna hai,
+**lekin `translate_agent` tool crash ho jata hai** (jaise invalid arguments ya API error), aur LLM ke instruction me alternative likha ho:
+
+> "If translate fails, fallback to summary\_agent."
+
+👉 Tum batayo: SDK is case ko kaise handle karega? Kya wo automatically alternative tool run karega ya tumhe khud logic likhna hoga?
+
 ---
 
-Kya aap chahte ho mai aapko ek **diagram** bana kar dikhaun jo step-by-step flow bataye tool crash hone pe kya hota hai har case me?
+# ✅ Answer
+
+1. **Tool crash handling mechanism**
+
+   * Har tool (chahe wo normal function ho ya agent-as-tool) ek `on_invoke_tool` ke through run hota hai.
+   * Agar tool fail karta hai → SDK default me `default_tool_error_function` call karta hai jo LLM ko ek structured error message bhej deta hai.
+   * Matlab LLM ko ye information milti hai:
+
+     ```json
+     { "error": "Tool call failed: translate_agent" }
+     ```
+
+
+
+
+
