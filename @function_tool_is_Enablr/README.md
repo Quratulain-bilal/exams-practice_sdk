@@ -1,4 +1,4 @@
-🛠️ Understanding @function_tool and is_enabled (Easy Guide)
+🛠️ Understanding @function_tool and is_enabled 
 
 📌 1. What is @function_tool?
 
