@@ -6,14 +6,14 @@
 
 🔑 1. API Keys (By Default)
 
-Jab tum SDK import karte ho, woh automatically check karta hai:
+Jab ap SDK import karte ho, woh automatically check karta hai:
 
 Environment variable OPENAI_API_KEY
 
 
 Agar yeh set hai → wahi key use hoti hai.
 
-Agar tum set_default_openai_key("sk-...") use karo → key manually set ho jati hai.
+Agar ap set_default_openai_key("sk-...") use karo → key manually set ho jati hai.
 
 
 👉 Default behavior: OPENAI_API_KEY environment variable use hota hai.
@@ -27,7 +27,7 @@ SDK automatically apna ek AsyncOpenAI client bana leta hai.
 
 Us client ke andar woh API key environment variable wali dalta hai.
 
-Tum chaho to custom client bana ke set_default_openai_client() ke through de sakte ho.
+ap chaho to custom client bana ke set_default_openai_client() ke through de sakte ho.
 
 
 👉 Default behavior: built-in AsyncOpenAI client with your environment key.
@@ -41,7 +41,7 @@ Docs aur code dono ke mutabiq:
 
 Default API = Responses API
 
-Agar tum change karna chaho to set_default_openai_api("chat_completions") kar do.
+Agar ap change karna chaho to set_default_openai_api("chat_completions") kar do.
 
 
 👉 Default behavior: "responses" API use hota hai.
@@ -55,7 +55,7 @@ Tracing by default enabled hota hai.
 
 Woh wahi API key use karega jo tumne environment mein ya set_default_openai_key() se di hai.
 
-Agar tum chaho to:
+Agar ap chaho to:
 
 set_tracing_export_api_key("sk-...") se alag key do
 
@@ -74,7 +74,7 @@ SDK ke paas do loggers hote hain (openai.agents, openai.agents.tracing).
 
 By default sirf warnings aur errors stdout pe jate hain.
 
-Agar tum detailed logs chaho to enable_verbose_stdout_logging() use karo.
+Agar ap detailed logs chaho to enable_verbose_stdout_logging() use karo.
 
 
 👉 Default behavior: Sirf warnings/errors dikhte hain.
