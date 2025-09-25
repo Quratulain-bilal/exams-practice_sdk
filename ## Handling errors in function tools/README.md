@@ -105,7 +105,7 @@ Agar user ek request bhejta hai aur LLM decide karta hai ke `translate_agent` ko
 
 ---
 
-# ✅ Answer
+# Answer
 
 1. **Tool crash handling mechanism**
 
