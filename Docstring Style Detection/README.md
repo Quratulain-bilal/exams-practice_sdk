@@ -82,28 +82,11 @@ def divide(a, b):
 
 ---
 
-🌀 Flowchart Diagram
-
-flowchart TD
-    A[Docstring likhi] --> B{Kaunsa style detect ho raha hai?}
-    B -->|Sphinx pattern| C[Sphinx score +1]
-    B -->|Numpy pattern| D[Numpy score +1]
-    B -->|Google pattern| E[Google score +1]
-    
-    C --> F{Max score check}
-    D --> F
-    E --> F
-
-    F -->|Equal score| G[Priority: Sphinx > Numpy > Google]
-    F -->|Clear winner| H[Wohi style select hoga]
-
-    G --> I[Final Style]
-    H --> I
 
 
----
 
-📝 Summary
+
+📝## Summary
 
 Tum jo style likhte ho wahi detect hota hai.
 
