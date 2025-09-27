@@ -98,6 +98,6 @@ Agar tie ho to Sphinx > Numpy > Google rule apply hota hai.
 
 ---
 
-🔥 Ab tumhe clear hai ke score hum developer nahi dete, balki SDK ka function dete hai jo docstring ke format ko analyze karta hai.
+🔥  score hum developer nahi dete, balki SDK ka function dete hai jo docstring ke format ko analyze karta hai.
 
 --
