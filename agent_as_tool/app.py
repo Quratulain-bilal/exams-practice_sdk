@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from rich import print
 import os
 
-# enable_verbose_stdout_logging()
+
 set_tracing_disabled(disabled=True)
 load_dotenv()
 
