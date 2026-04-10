@@ -1,0 +1,10 @@
+Quick Practice Exam Module
+=========================
+
+This module provides:
+- 100+ practice questions
+- Timed exams
+- Instant feedback
+
+Usage:
+    python practice.py --topic=general
